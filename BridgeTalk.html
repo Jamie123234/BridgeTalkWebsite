@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BridgeTalk - Unifying Global Customer Support with AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f8fafc; /* slate-50 */
+      }
+      .hero-gradient {
+        background: radial-gradient(
+          circle at 50% 0,
+          rgba(29, 78, 216, 0.1),
+          transparent 70%
+        );
+      }
+      .section-title {
+        font-size: 1.875rem; /* text-3xl */
+        font-weight: 700; /* font-bold */
+        color: #1e293b; /* text-slate-800 */
+        text-align: center; /* text-center */
+      }
+      @media (min-width: 640px) {
+        .section-title {
+          font-size: 2.25rem; /* sm:text-4xl */
+        }
+      }
+      .section-subtitle {
+        margin-top: 1rem; /* mt-4 */
+        font-size: 1.125rem; /* text-lg */
+        color: #475569; /* text-slate-600 */
+        text-align: center; /* text-center */
+        max-width: 42rem; /* max-w-2xl */
+        margin-left: auto; /* mx-auto */
+        margin-right: auto;
+      }
+      .feature-card {
+        background-color: #fff; /* bg-white */
+        padding: 1.5rem; /* p-6 */
+        border-radius: 0.75rem; /* rounded-xl */
+        box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.08),
+          0 1px 2px 0 rgba(15, 23, 42, 0.08); /* shadow-lg */
+        transition: box-shadow 0.3s;
+        height: 100%;
+      }
+      .feature-card:hover {
+        box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.12),
+          0 4px 6px -4px rgba(15, 23, 42, 0.12); /* hover:shadow-xl */
+      }
+      .cta-button {
+        padding-left: 2rem; /* px-8 */
+        padding-right: 2rem;
+        padding-top: 0.75rem; /* py-3 */
+        padding-bottom: 0.75rem;
+        background-color: #2563eb; /* bg-blue-600 */
+        color: #fff; /* text-white */
+        font-weight: 600; /* font-semibold */
+        border-radius: 0.5rem; /* rounded-lg */
+        box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.08),
+          0 1px 2px 0 rgba(15, 23, 42, 0.08); /* shadow-md */
+        outline: none;
+        transition: transform 0.2s, background-color 0.2s;
+        transform: none;
+      }
+      .cta-button:hover {
+        background-color: #1d4ed8; /* hover:bg-blue-700 */
+        transform: scale(1.05); /* hover:scale-105 */
+      }
+      .cta-button:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #2563eb33; /* focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 */
+      }
+      .gemini-feature-card {
+        background-color: #fff; /* bg-white */
+        padding: 2rem; /* p-8 */
+        border-radius: 1rem; /* rounded-2xl */
+        box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.08),
+          0 1px 2px 0 rgba(15, 23, 42, 0.08); /* shadow-lg */
+        border: 1px solid #e2e8f0; /* border border-slate-200 */
+      }
+      #chat-widget {
+        transition: all 0.3s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header
+      id="header"
+      class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm"
+    >
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="text-blue-600"
+          >
+            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10Z"></path>
+          </svg>
+          <h1 class="text-2xl font-bold text-slate-800">BridgeTalk</h1>
+        </div>
+        <nav class="hidden md:flex items-center space-x-8">
+          <a href="#features" class="text-slate-600 hover:text-blue-600"
+            >Features</a
+          >
+          <a href="#gemini-features" class="text-slate-600 hover:text-blue-600"
+            >✨ AI Powered</a
+          >
+          <a href="#solution" class="text-slate-600 hover:text-blue-600"
+            >Solution</a
+          >
+          <a href="#pricing" class="text-slate-600 hover:text-blue-600"
+            >Pricing</a
+          >
+        </nav>
+        <a href="#contact" class="hidden md:inline-block cta-button"
+          >Request a Demo</a
+        >
+        <button
+          id="mobile-menu-button"
+          class="md:hidden p-2 rounded-md text-slate-600 hover:bg-slate-200"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-menu"
+          >
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden px-6 pb-4 bg-white/80 backdrop-blur-lg"
+      >
+        <a
+          href="#features"
+          class="block py-2 text-slate-600 hover:text-blue-600"
+          >Features</a
+        >
+        <a
+          href="#gemini-features"
+          class="block py-2 text-slate-600 hover:text-blue-600"
+          >✨ AI Powered</a
+        >
+        <a
+          href="#solution"
+          class="block py-2 text-slate-600 hover:text-blue-600"
+          >Solution</a
+        >
+        <a href="#pricing" class="block py-2 text-slate-600 hover:text-blue-600"
+          >Pricing</a
+        >
+        <a
+          href="#contact"
+          class="mt-4 inline-block w-full text-center cta-button"
+          >Request a Demo</a
+        >
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="pt-32 pb-20 hero-gradient">
+        <div class="container mx-auto px-6 text-center">
+          <span
+            class="inline-block px-4 py-1 text-sm font-semibold text-blue-700 bg-blue-100 rounded-full"
+            >Next-Generation Customer Support, Supercharged by AI</span
+          >
+          <h2 class="text-4xl md:text-6xl font-extrabold text-slate-900 mt-4">
+            Unify Your Global Customer Communication
+          </h2>
+          <p class="mt-6 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
+            BridgeTalk is the centralized VoIP platform with integrated AI,
+            designed for large international corporations to eliminate
+            communication complexity, enhance customer satisfaction, and drive
+            agent productivity.
+          </p>
+          <div class="mt-8 flex justify-center space-x-4">
+            <a href="#contact" class="cta-button">Request a Free Demo</a>
+            <a
+              href="#features"
+              class="px-8 py-3 bg-white text-slate-700 font-semibold rounded-lg shadow-md hover:bg-slate-100 transition-colors"
+              >Learn More</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Problem Section -->
+      <section id="problem" class="py-20 bg-slate-100">
+        <div class="container mx-auto px-6">
+          <h3 class="section-title">Tired of Communication Roadblocks?</h3>
+          <p class="section-subtitle">
+            Large corporations struggle with fragmented systems that frustrate
+            customers and hinder growth. Does this sound familiar?
+          </p>
+          <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0 bg-red-100 p-3 rounded-full">
+                <i data-lucide="puzzle" class="text-red-500"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-semibold text-slate-800">
+                  Complex IVR Nightmares
+                </h4>
+                <p class="mt-2 text-slate-600">
+                  Customers get lost in endless phone menus, leading to high
+                  abandonment rates and dissatisfaction.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0 bg-red-100 p-3 rounded-full">
+                <i data-lucide="clock" class="text-red-500"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-semibold text-slate-800">
+                  Excessive Wait Times
+                </h4>
+                <p class="mt-2 text-slate-600">
+                  Inefficient routing leaves customers waiting, damaging your
+                  brand's reputation with every minute.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0 bg-red-100 p-3 rounded-full">
+                <i data-lucide="shuffle" class="text-red-500"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-semibold text-slate-800">
+                  Fragmented Channels
+                </h4>
+                <p class="mt-2 text-slate-600">
+                  Lack of a unified view means agents don't have context,
+                  forcing customers to repeat themselves.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Solution & Features Section -->
+      <section id="features" class="py-20">
+        <div class="container mx-auto px-6">
+          <h3 class="section-title">
+            The All-in-One Solution for Global Support
+          </h3>
+          <p class="section-subtitle">
+            BridgeTalk empowers your teams with the tools they need to deliver
+            exceptional, seamless support across the globe.
+          </p>
+          <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div class="feature-card">
+              <div class="bg-blue-100 p-3 rounded-full w-max">
+                <i data-lucide="globe-2" class="text-blue-600"></i>
+              </div>
+              <h4 class="mt-4 text-xl font-semibold text-slate-800">
+                Centralized Global Hub
+              </h4>
+              <p class="mt-2 text-slate-600">
+                Manage all customer interactions from a single, intuitive
+                dashboard, regardless of location or channel.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="bg-blue-100 p-3 rounded-full w-max">
+                <i data-lucide="bot" class="text-blue-600"></i>
+              </div>
+              <h4 class="mt-4 text-xl font-semibold text-slate-800">
+                AI-Powered Routing
+              </h4>
+              <p class="mt-2 text-slate-600">
+                Intelligently route customers to the best-suited agent based on
+                skill, language, and history.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="bg-blue-100 p-3 rounded-full w-max">
+                <i data-lucide="arrow-right-left" class="text-blue-600"></i>
+              </div>
+              <h4 class="mt-4 text-xl font-semibold text-slate-800">
+                Seamless Channel Switching
+              </h4>
+              <p class="mt-2 text-slate-600">
+                Allow customers to move between voice, chat, and email without
+                losing context or starting over.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="bg-blue-100 p-3 rounded-full w-max">
+                <i data-lucide="bar-chart-3" class="text-blue-600"></i>
+              </div>
+              <h4 class="mt-4 text-xl font-semibold text-slate-800">
+                Actionable Analytics
+              </h4>
+              <p class="mt-2 text-slate-600">
+                Gain deep insights into performance with real-time dashboards
+                and customizable reports.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gemini Features Section -->
+      <section id="gemini-features" class="py-20 bg-slate-800 text-white">
+        <div class="container mx-auto px-6">
+          <h3 class="text-3xl font-bold sm:text-4xl text-center">
+            Powered by Gemini API ✨
+          </h3>
+          <p class="mt-4 text-lg text-slate-300 text-center max-w-2xl mx-auto">
+            Supercharge your support with cutting-edge AI to automate tasks,
+            assist agents, and delight customers.
+          </p>
+          <div class="mt-12 grid gap-8 md:grid-cols-1 lg:grid-cols-3">
+            <div class="gemini-feature-card bg-slate-700/50">
+              <div class="flex items-center space-x-4">
+                <div class="bg-blue-500/20 p-3 rounded-full w-max">
+                  <i data-lucide="file-text" class="text-blue-400"></i>
+                </div>
+                <h4 class="text-xl font-semibold text-white">
+                  AI Call Summaries
+                </h4>
+              </div>
+              <p class="mt-4 text-slate-300">
+                Instantly generate accurate, concise summaries of every customer
+                call. Agents save hours on post-call work and focus on what
+                matters: helping customers.
+              </p>
+              <button
+                id="summarize-btn"
+                class="mt-4 text-sm font-semibold text-blue-400 hover:text-blue-300 flex items-center"
+              >
+                See Example
+                <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+              </button>
+            </div>
+            <div class="gemini-feature-card bg-slate-700/50">
+              <div class="flex items-center space-x-4">
+                <div class="bg-blue-500/20 p-3 rounded-full w-max">
+                  <i data-lucide="sparkles" class="text-blue-400"></i>
+                </div>
+                <h4 class="text-xl font-semibold text-white">Agent Assist</h4>
+              </div>
+              <p class="mt-4 text-slate-300">
+                Provide agents with real-time, AI-powered suggestions, knowledge
+                base articles, and next-best-actions during live calls to solve
+                issues faster.
+              </p>
+              <button
+                id="assist-btn"
+                class="mt-4 text-sm font-semibold text-blue-400 hover:text-blue-300 flex items-center"
+              >
+                See Example
+                <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+              </button>
+            </div>
+            <div class="gemini-feature-card bg-slate-700/50">
+              <div class="flex items-center space-x-4">
+                <div class="bg-blue-500/20 p-3 rounded-full w-max">
+                  <i data-lucide="message-circle" class="text-blue-400"></i>
+                </div>
+                <h4 class="text-xl font-semibold text-white">
+                  Self-Service AI Chatbot
+                </h4>
+              </div>
+              <p class="mt-4 text-slate-300">
+                Deploy an intelligent chatbot on your website to provide 24/7
+                instant answers and seamlessly escalate to a human agent when
+                needed.
+              </p>
+              <button
+                id="chatbot-btn"
+                class="mt-4 text-sm font-semibold text-blue-400 hover:text-blue-300 flex items-center"
+              >
+                Try the Chatbot
+                <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works Section -->
+      <section id="solution" class="py-20 bg-slate-100">
+        <div class="container mx-auto px-6">
+          <h3 class="section-title">A Smarter Customer Journey</h3>
+          <p class="section-subtitle">
+            Visualize the effortless path to resolution with BridgeTalk's
+            intelligent workflow.
+          </p>
+          <div class="mt-12 max-w-4xl mx-auto relative">
+            <div
+              class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-blue-200 hidden md:block"
+            ></div>
+            <div class="space-y-16">
+              <!-- Step 1 -->
+              <div class="md:flex items-center md:space-x-8">
+                <div class="md:w-1/2 flex justify-center md:justify-end">
+                  <div
+                    class="w-full max-w-md bg-white p-6 rounded-xl shadow-lg"
+                  >
+                    <span class="font-bold text-blue-600">Step 1</span>
+                    <h4 class="text-xl font-semibold text-slate-800 mt-2">
+                      Initial Contact
+                    </h4>
+                    <p class="mt-2 text-slate-600">
+                      A customer reaches out via any channel—voice, web chat, or
+                      our AI chatbot—through a single, unified entry point.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto my-4 md:my-0 relative z-10"
+                >
+                  1
+                </div>
+                <div class="md:w-1/2"></div>
+              </div>
+              <!-- Step 2 -->
+              <div class="md:flex items-center md:space-x-8">
+                <div class="md:w-1/2 md:order-3"></div>
+                <div
+                  class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto my-4 md:my-0 md:order-2 relative z-10"
+                >
+                  2
+                </div>
+                <div
+                  class="md:w-1/2 flex justify-center md:justify-start md:order-1"
+                >
+                  <div
+                    class="w-full max-w-md bg-white p-6 rounded-xl shadow-lg"
+                  >
+                    <span class="font-bold text-blue-600">Step 2</span>
+                    <h4 class="text-xl font-semibold text-slate-800 mt-2">
+                      ✨ Intelligent Routing
+                    </h4>
+                    <p class="mt-2 text-slate-600">
+                      BridgeTalk's AI, powered by Gemini, analyzes the query and
+                      instantly routes it to the most qualified agent anywhere
+                      in the world.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- Step 3 -->
+              <div class="md:flex items-center md:space-x-8">
+                <div class="md:w-1/2 flex justify-center md:justify-end">
+                  <div
+                    class="w-full max-w-md bg-white p-6 rounded-xl shadow-lg"
+                  >
+                    <span class="font-bold text-blue-600">Step 3</span>
+                    <h4 class="text-xl font-semibold text-slate-800 mt-2">
+                      ✨ Contextual Interaction
+                    </h4>
+                    <p class="mt-2 text-slate-600">
+                      The agent receives the customer's full history, plus
+                      real-time suggestions from Agent Assist, enabling a
+                      personalized and efficient conversation.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto my-4 md:my-0 relative z-10"
+                >
+                  3
+                </div>
+                <div class="md:w-1/2"></div>
+              </div>
+              <!-- Step 4 -->
+              <div class="md:flex items-center md:space-x-8">
+                <div class="md:w-1/2 md:order-3"></div>
+                <div
+                  class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto my-4 md:my-0 md:order-2 relative z-10"
+                >
+                  4
+                </div>
+                <div
+                  class="md:w-1/2 flex justify-center md:justify-start md:order-1"
+                >
+                  <div
+                    class="w-full max-w-md bg-white p-6 rounded-xl shadow-lg"
+                  >
+                    <span class="font-bold text-blue-600">Step 4</span>
+                    <h4 class="text-xl font-semibold text-slate-800 mt-2">
+                      ✨ Swift Resolution & Summary
+                    </h4>
+                    <p class="mt-2 text-slate-600">
+                      The issue is resolved quickly, a Gemini-generated summary
+                      is automatically logged, and the customer leaves
+                      satisfied.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section class="py-20">
+        <div class="container mx-auto px-6">
+          <h3 class="section-title">Trusted by Global Leaders</h3>
+          <p class="section-subtitle">
+            See what our partners are saying about the power of unified,
+            AI-driven communication.
+          </p>
+          <div
+            class="mt-12 grid gap-8 md:grid-cols-1 lg:grid-cols-2 max-w-5xl mx-auto"
+          >
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+              <p class="text-slate-600 italic">
+                "The AI Call Summaries are a total game-changer. What used to
+                take our agents 10 minutes of wrap-up time is now done instantly
+                and more accurately. It's a massive productivity boost."
+              </p>
+              <div class="mt-4 flex items-center">
+                <img
+                  class="w-12 h-12 rounded-full"
+                  src="https://placehold.co/100x100/E2E8F0/475569?text=JS"
+                  alt="John Smith"
+                />
+                <div class="ml-4">
+                  <p class="font-semibold text-slate-800">John Smith</p>
+                  <p class="text-slate-500">
+                    Global Head of Support, FinTech Innovations
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+              <p class="text-slate-600 italic">
+                "Agent Assist has dramatically reduced our training time for new
+                hires. The real-time guidance helps them feel confident and
+                solve complex issues from day one. Our CSAT scores have jumped
+                15 points."
+              </p>
+              <div class="mt-4 flex items-center">
+                <img
+                  class="w-12 h-12 rounded-full"
+                  src="https://placehold.co/100x100/E2E8F0/475569?text=AL"
+                  alt="Alisha Khan"
+                />
+                <div class="ml-4">
+                  <p class="font-semibold text-slate-800">Alisha Khan</p>
+                  <p class="text-slate-500">
+                    VP of Customer Experience, AirTravel Connect
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing Section -->
+      <section id="pricing" class="py-20 bg-slate-100">
+        <div class="container mx-auto px-6">
+          <h3 class="section-title">Simple, Transparent Pricing</h3>
+          <p class="section-subtitle">
+            Choose the plan that fits your organization's scale and needs. Grow
+            with confidence.
+          </p>
+          <div
+            class="mt-12 grid gap-8 md:grid-cols-1 lg:grid-cols-3 max-w-6xl mx-auto items-stretch"
+          >
+            <!-- Professional Plan -->
+            <div
+              class="bg-white p-8 rounded-xl shadow-lg border-2 border-transparent flex flex-col"
+            >
+              <div class="flex-grow">
+                <h4 class="text-xl font-semibold text-slate-800">
+                  Professional
+                </h4>
+                <p class="mt-2 text-slate-500">
+                  For teams getting started with unified communications.
+                </p>
+                <p class="mt-6 text-4xl font-bold text-slate-900">Contact Us</p>
+                <ul class="mt-6 space-y-4 text-slate-600">
+                  <li class="flex items-center">
+                    <i data-lucide="check" class="text-green-500 mr-2"></i>Core
+                    VoIP Features
+                  </li>
+                  <li class="flex items-center">
+                    <i data-lucide="check" class="text-green-500 mr-2"></i
+                    >Standard Call Routing
+                  </li>
+                  <li class="flex items-center">
+                    <i data-lucide="check" class="text-green-500 mr-2"></i>Basic
+                    Analytics
+                  </li>
+                  <li class="flex items-center">
+                    <i data-lucide="check" class="text-green-500 mr-2"></i>Email
+                    & Chat Support
+                  </li>
+                </ul>
+              </div>
+              <a
+                href="#contact"
+                class="mt-8 block w-full text-center py-3 px-6 bg-slate-200 text-slate-700 font-semibold rounded-lg hover:bg-slate-300"
+                >Get Quote</a
+              >
+            </div>
+            <!-- Business Plan -->
+            <div
+              class="bg-white p-8 rounded-xl shadow-2xl border-2 border-blue-600 relative flex flex-col"
+            >
+              <span
+                class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-sm font-semibold px-4 py-1 rounded-full"
+                >Most Popular</span
+              >
+              <div class="flex-grow">
+                <h4 class="text-xl font-semibold text-slate-800">Business</h4>
+                <p class="mt-2 text-slate-500">
+                  For growing businesses scaling their global support.
+                </p>
+                <p class="mt-6 text-4xl font-bold text-slate-900">Contact Us</p>
+                <ul class="mt-6 space-y-4 text-slate-600">
+                  <li class="flex items-center">
+                    <i data-lucide="check" class="text-green-500 mr-2"></i
+                    >Everything in Professional
+                  </li>
+                  <li class="flex items-center">
+                    <i data-lucide="check" class="text-green-500 mr-2"></i
+                    ><b>✨ AI-Powered Routing</b>
+                  </li>
+                  <li class="flex items-center">
+                    <i data-lucide="check" class="text-green-500 mr-2"></i
+                    ><b>✨ AI Call Summaries</b>
+                  </li>
+                  <li class="flex items-center">
+                    <i data-lucide="check" class="text-green-500 mr-2"></i
+                    >Advanced Analytics & Reporting
+                  </li>
+                  <li class="flex items-center">
+                    <i data-lucide="check" class="text-green-500 mr-2"></i>CRM
+                    Integrations
+                  </li>
+                  <li class="flex items-center">
+                    <i data-lucide="check" class="text-green-500 mr-2"></i
+                    >Priority Phone Support
+                  </li>
+                </ul>
+              </div>
+              <a
+                href="#contact"
+                class="mt-8 block w-full text-center py-3 px-6 cta-button"
+                >Request a Demo</a
+              >
+            </div>
+            <!-- Enterprise Plan -->
+            <div
+              class="bg-white p-8 rounded-xl shadow-lg border-2 border-transparent flex flex-col"
+            >
+              <div class="flex-grow">
+                <h4 class="text-xl font-semibold text-slate-800">Enterprise</h4>
+                <p class="mt-2 text-slate-500">
+                  For large corporations with complex, custom needs.
+                </p>
+                <p class="mt-6 text-4xl font-bold text-slate-900">Contact Us</p>
+                <ul class="mt-6 space-y-4 text-slate-600">
+                  <li class="flex items-center">
+                    <i data-lucide="check" class="text-green-500 mr-2"></i
+                    >Everything in Business
+                  </li>
+                  <li class="flex items-center">
+                    <i data-lucide="check" class="text-green-500 mr-2"></i
+                    ><b>✨ Agent Assist</b>
+                  </li>
+                  <li class="flex items-center">
+                    <i data-lucide="check" class="text-green-500 mr-2"></i
+                    ><b>✨ Self-Service AI Chatbot</b>
+                  </li>
+                  <li class="flex items-center">
+                    <i data-lucide="check" class="text-green-500 mr-2"></i
+                    >Custom Integrations
+                  </li>
+                  <li class="flex items-center">
+                    <i data-lucide="check" class="text-green-500 mr-2"></i
+                    >Dedicated Account Manager
+                  </li>
+                  <li class="flex items-center">
+                    <i data-lucide="check" class="text-green-500 mr-2"></i>99.9%
+                    Uptime SLA
+                  </li>
+                </ul>
+              </div>
+              <a
+                href="#contact"
+                class="mt-8 block w-full text-center py-3 px-6 bg-slate-200 text-slate-700 font-semibold rounded-lg hover:bg-slate-300"
+                >Talk to Sales</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact / CTA Section -->
+      <section id="contact" class="py-20 bg-blue-700 text-white">
+        <div class="container mx-auto px-6 text-center">
+          <h3 class="text-3xl font-bold sm:text-4xl">
+            Ready to Transform Your Customer Support?
+          </h3>
+          <p class="mt-4 text-lg text-blue-100 max-w-2xl mx-auto">
+            Let us show you how BridgeTalk can unify your communications and
+            delight your customers. Schedule a personalized demo with one of our
+            experts today.
+          </p>
+          <div
+            class="mt-8 max-w-xl mx-auto bg-white p-8 rounded-xl shadow-2xl text-slate-800"
+          >
+            <form>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label
+                    for="firstName"
+                    class="block text-sm font-medium text-left text-slate-700"
+                    >First Name</label
+                  >
+                  <input
+                    type="text"
+                    id="firstName"
+                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="lastName"
+                    class="block text-sm font-medium text-left text-slate-700"
+                    >Last Name</label
+                  >
+                  <input
+                    type="text"
+                    id="lastName"
+                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
+              </div>
+              <div class="mt-4">
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-left text-slate-700"
+                  >Business Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                />
+              </div>
+              <div class="mt-4">
+                <label
+                  for="company"
+                  class="block text-sm font-medium text-left text-slate-700"
+                  >Company Name</label
+                >
+                <input
+                  type="text"
+                  id="company"
+                  class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                />
+              </div>
+              <div class="mt-6">
+                <button type="submit" class="w-full cta-button">
+                  Schedule My Demo
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-300">
+      <div class="container mx-auto px-6 py-12">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div>
+            <h5 class="font-semibold text-white tracking-wide">Product</h5>
+            <ul class="mt-4 space-y-2">
+              <li><a href="#features" class="hover:text-white">Features</a></li>
+              <li>
+                <a href="#gemini-features" class="hover:text-white"
+                  >AI Powered</a
+                >
+              </li>
+              <li><a href="#pricing" class="hover:text-white">Pricing</a></li>
+              <li>
+                <a href="#contact" class="hover:text-white">Request a Demo</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="font-semibold text-white tracking-wide">Company</h5>
+            <ul class="mt-4 space-y-2">
+              <li><a href="#" class="hover:text-white">About Us</a></li>
+              <li><a href="#" class="hover:text-white">Careers</a></li>
+              <li><a href="#" class="hover:text-white">Press</a></li>
+              <li><a href="#" class="hover:text-white">Contact Us</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="font-semibold text-white tracking-wide">Resources</h5>
+            <ul class="mt-4 space-y-2">
+              <li><a href="#" class="hover:text-white">Blog</a></li>
+              <li><a href="#" class="hover:text-white">Help Center</a></li>
+              <li>
+                <a href="#" class="hover:text-white">API Documentation</a>
+              </li>
+              <li><a href="#" class="hover:text-white">System Status</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="font-semibold text-white tracking-wide">Legal</h5>
+            <ul class="mt-4 space-y-2">
+              <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+              <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="mt-12 pt-8 border-t border-slate-700 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-slate-400">
+            &copy; 2025 BridgeTalk Inc. All rights reserved.
+          </p>
+          <div class="flex space-x-4 mt-4 md:mt-0">
+            <a href="#" class="text-slate-400 hover:text-white"
+              ><i data-lucide="twitter"></i
+            ></a>
+            <a href="#" class="text-slate-400 hover:text-white"
+              ><i data-lucide="linkedin"></i
+            ></a>
+            <a href="#" class="text-slate-400 hover:text-white"
+              ><i data-lucide="facebook"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal for AI Feature Examples -->
+    <div
+      id="ai-modal"
+      class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4"
+    >
+      <div
+        id="modal-content"
+        class="bg-white rounded-lg shadow-2xl w-full max-w-lg p-6 relative"
+      >
+        <button
+          id="close-modal-btn"
+          class="absolute top-4 right-4 text-slate-500 hover:text-slate-800"
+        >
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+        <h3 id="modal-title" class="text-2xl font-bold text-slate-800"></h3>
+        <div id="modal-body" class="mt-4 text-slate-600"></div>
+      </div>
+    </div>
+
+    <!-- AI Chatbot Widget -->
+    <div id="chat-widget" class="fixed bottom-5 right-5">
+      <button
+        id="chat-bubble"
+        class="bg-blue-600 text-white w-16 h-16 rounded-full shadow-lg flex items-center justify-center transform hover:scale-110 transition-transform"
+      >
+        <i data-lucide="message-circle" class="w-8 h-8"></i>
+      </button>
+      <div
+        id="chat-window"
+        class="hidden absolute bottom-20 right-0 w-80 h-96 bg-white rounded-xl shadow-2xl flex flex-col"
+      >
+        <div class="bg-blue-600 text-white p-3 rounded-t-xl">
+          <h3 class="font-semibold">BridgeTalk AI Assistant</h3>
+        </div>
+        <div id="chat-messages" class="flex-grow p-3 overflow-y-auto">
+          <div class="p-2 bg-slate-100 rounded-lg text-sm w-max max-w-xs">
+            Hi! How can I help you today?
+          </div>
+        </div>
+        <div class="p-3 border-t border-slate-200">
+          <div class="flex space-x-2">
+            <input
+              id="chat-input"
+              type="text"
+              placeholder="Ask a question..."
+              class="flex-grow px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+            />
+            <button
+              id="chat-send"
+              class="bg-blue-600 text-white p-2 rounded-md"
+            >
+              <i data-lucide="send" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      lucide.createIcons();
+
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+      mobileMenuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        const isClickInsideMenu = mobileMenu.contains(event.target);
+        const isClickOnButton = mobileMenuButton.contains(event.target);
+        if (
+          !isClickInsideMenu &&
+          !isClickOnButton &&
+          !mobileMenu.classList.contains("hidden")
+        ) {
+          mobileMenu.classList.add("hidden");
+        }
+      });
+
+      // AI Modal Logic
+      const aiModal = document.getElementById("ai-modal");
+      const modalContent = document.getElementById("modal-content");
+      const closeModalBtn = document.getElementById("close-modal-btn");
+      const modalTitle = document.getElementById("modal-title");
+      const modalBody = document.getElementById("modal-body");
+
+      const featureExamples = {
+        summarize: {
+          title: "✨ AI Call Summary Example",
+          content: `
+                    <p class="mb-4">Here's an example of a call summary automatically generated by Gemini:</p>
+                    <div class="bg-slate-100 p-4 rounded-lg border border-slate-200">
+                        <h4 class="font-semibold text-slate-800">Call Summary</h4>
+                        <p class="text-sm text-slate-500 mb-2">Customer: Jane Doe | Agent: Bob | Date: 2025-06-12</p>
+                        <ul class="list-disc list-inside space-y-1 text-sm">
+                            <li><strong>Issue:</strong> Customer reported a billing discrepancy on her latest invoice (INV-12345).</li>
+                            <li><strong>Details:</strong> She was overcharged by $25 for a service she canceled last month.</li>
+                            <li><strong>Action Taken:</strong> Agent verified the cancellation and processed a $25 refund to her account.</li>
+                            <li><strong>Outcome:</strong> Customer was satisfied with the resolution. A follow-up email with refund confirmation was sent.</li>
+                        </ul>
+                    </div>
+                `,
+        },
+        assist: {
+          title: "✨ Agent Assist Example",
+          content: `
+                    <p class="mb-4">During a live call, the agent's screen displays real-time suggestions like this:</p>
+                    <div class="bg-slate-100 p-4 rounded-lg border border-slate-200">
+                       <div class="flex-col space-y-3">
+                            <div class="bg-white p-3 rounded-md shadow-sm">
+                                <h5 class="font-semibold text-sm text-blue-600">Suggested Response</h5>
+                                <p class="text-sm">"I understand your frustration with the billing error. Let me pull up your account right now to resolve this for you."</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-md shadow-sm">
+                                <h5 class="font-semibold text-sm text-green-600">Relevant Knowledge Base Article</h5>
+                                <a href="#" class="text-sm text-slate-800 hover:underline">How to Process a Refund for Billing Errors</a>
+                            </div>
+                            <div class="bg-white p-3 rounded-md shadow-sm">
+                                <h5 class="font-semibold text-sm text-purple-600">Next Best Action</h5>
+                                <p class="text-sm">Open the refund processing tool in the CRM.</p>
+                            </div>
+                       </div>
+                    </div>
+                `,
+        },
+      };
+
+      function showModal(type) {
+        modalTitle.innerText = featureExamples[type].title;
+        modalBody.innerHTML = featureExamples[type].content;
+        aiModal.classList.remove("hidden");
+        aiModal.classList.add("flex");
+      }
+
+      function hideModal() {
+        aiModal.classList.add("hidden");
+        aiModal.classList.remove("flex");
+      }
+
+      document
+        .getElementById("summarize-btn")
+        .addEventListener("click", () => showModal("summarize"));
+      document
+        .getElementById("assist-btn")
+        .addEventListener("click", () => showModal("assist"));
+      closeModalBtn.addEventListener("click", hideModal);
+      aiModal.addEventListener("click", (event) => {
+        if (event.target === aiModal) {
+          hideModal();
+        }
+      });
+
+      // Chatbot Widget Logic
+      const chatBubble = document.getElementById("chat-bubble");
+      const chatWindow = document.getElementById("chat-window");
+      const chatInput = document.getElementById("chat-input");
+      const chatSend = document.getElementById("chat-send");
+      const chatMessages = document.getElementById("chat-messages");
+
+      document.getElementById("chatbot-btn").addEventListener("click", () => {
+        chatWindow.classList.remove("hidden");
+      });
+
+      chatBubble.addEventListener("click", () => {
+        chatWindow.classList.toggle("hidden");
+      });
+
+      async function getGeminiResponse(prompt) {
+        const thinkingDiv = document.createElement("div");
+        thinkingDiv.innerHTML = `<div class="p-2 bg-slate-100 rounded-lg text-sm w-max max-w-xs">Thinking...</div>`;
+        chatMessages.appendChild(thinkingDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        let chatHistory = [];
+        chatHistory.push({
+          role: "user",
+          parts: [
+            {
+              text:
+                "You are 'BridgeBot', a friendly, professional, and helpful AI assistant for a company called BridgeTalk. Your primary goal is to answer questions about the BridgeTalk product and business based *only* on the information provided below. Keep your answers concise and directly address the user's question. If the answer is not in the provided text, state that you do not have that specific information and suggest contacting a sales representative. \n\n --- \n\n **BridgeTalk Company & Product Information:** \n\n * **Product:** BridgeTalk is a next-generation, centralized Voice over IP (VoIP)-based customer support application designed for large international corporations. \n * **Value Proposition for Businesses:** We provide a unified communication hub that reduces operational costs, enhances agent productivity, offers actionable data insights through analytics, and improves brand reputation. \n * **Value Proposition for End-Customers:** We offer a simplified and intuitive contact process with reduced wait times, personalized interactions, and seamless switching between communication channels. \n * **Target Customer Segments:** Our primary customers are large international corporations in sectors with high customer interaction volumes, including Telecommunications, Financial Services, E-commerce, and Travel & Hospitality. \n * **Revenue Streams:** Our business model is based on: \n    1.  **Tiered Monthly Subscription Fees** (based on the number of users). \n    2.  **Usage-Based Fees** (for international calls, data storage). \n    3.  **Premium Feature Add-ons** (like advanced AI analytics). \n    4.  **Professional Services** (for implementation, customization, and training). \n * **Key Partnerships:** We partner with CRM Providers (like Salesforce, HubSpot), Cloud Infrastructure Providers (AWS, Google Cloud, Azure), and global Telecommunication Carriers to enhance our service. \n * **Customer Support:** Clients receive a dedicated account manager, 24/7 premium support, proactive onboarding, and access to a community forum and knowledge base. \n\n --- \n\n Here is the user's question: " +
+                prompt,
+            },
+          ],
+        });
+        const payload = { contents: chatHistory };
+        const apiKey = "AIzaSyDcyCRQDpg11RpfVyM2MmfjFh9tV-rKMRw";
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+        try {
+          const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          const result = await response.json();
+          thinkingDiv.remove();
+
+          if (result.candidates && result.candidates.length > 0) {
+            const text = result.candidates[0].content.parts[0].text;
+            addBotMessage(text);
+          } else {
+            addBotMessage(
+              "Sorry, I'm having trouble connecting right now. Please try again later."
+            );
+          }
+        } catch (error) {
+          thinkingDiv.remove();
+          console.error("Error calling Gemini API:", error);
+          addBotMessage(
+            "Sorry, an error occurred. Could you please try asking again?"
+          );
+        }
+      }
+
+      function addUserMessage(message) {
+        const messageDiv = document.createElement("div");
+        messageDiv.className = "flex justify-end mb-2";
+        messageDiv.innerHTML = `<div class="p-2 bg-blue-500 text-white rounded-lg text-sm max-w-xs">${message}</div>`;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      function addBotMessage(message) {
+        const messageDiv = document.createElement("div");
+        messageDiv.className = "flex justify-start mb-2";
+        messageDiv.innerHTML = `<div class="p-2 bg-slate-100 rounded-lg text-sm max-w-xs">${message}</div>`;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      function handleSend() {
+        const message = chatInput.value.trim();
+        if (message) {
+          addUserMessage(message);
+          getGeminiResponse(message);
+          chatInput.value = "";
+        }
+      }
+
+      chatSend.addEventListener("click", handleSend);
+      chatInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          handleSend();
+        }
+      });
+    </script>
+  </body>
+</html>
